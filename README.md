@@ -28,6 +28,8 @@ A Qt-based graphical user interface for managing [COPR](https://copr.fedorainfra
 
 <img src="https://raw.githubusercontent.com/qr243vbi/qr243vbi_images/refs/heads/copr_gui/copr_gui_packages.png" />
 
+<img src="https://raw.githubusercontent.com/qr243vbi/qr243vbi_images/refs/heads/copr_gui/copr_gui_project.png" />
+
 ## Requirements
 
 - Python 3
