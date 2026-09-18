@@ -24,9 +24,9 @@ A Qt-based graphical user interface for managing [COPR](https://copr.fedorainfra
 
 ## Screenshots
 
-<img width="822" height="560" alt="Screenshot From 2026-09-18 20-45-09" src="https://github.com/user-attachments/assets/2132304b-bcf6-4bfb-8ef8-ea397de9927e" />
+<img src="https://raw.githubusercontent.com/qr243vbi/qr243vbi_images/refs/heads/copr_gui/copr_gui_overview.png" />
 
-<img width="922" height="660" alt="Screenshot From 2026-09-18 20-46-55" src="https://github.com/user-attachments/assets/97a1d46b-e82f-4d3d-874c-7a874ddbcc21" />
+<img src="https://raw.githubusercontent.com/qr243vbi/qr243vbi_images/refs/heads/copr_gui/copr_gui_packages.png" />
 
 ## Requirements
 
