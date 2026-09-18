@@ -14,6 +14,8 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  pyproject-rpm-macros
 BuildRequires:  qt6-qtdeclarative-devel
+BuildRequires:  python3-pyqt6
+BuildRequires:  python3-copr
 
 Requires:       qt6-qtdeclarative
 Requires:       python3-pyqt6
