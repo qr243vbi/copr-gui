@@ -2,6 +2,7 @@ import sys
 import random
 import string
 
+from pathlib import Path
 from PyQt6.QtCore import Qt, QTimer, QThread, QObject, pyqtSignal
 from PyQt6.QtGui import QAction, QFont
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QSizePolicy
@@ -3507,13 +3508,15 @@ class BuildType(QMainWindow):
         )
         self.qml_ids = {}
         qml_current_id = 0
+        
+        directory = Path(__file__).resolve().parent / "copr_gui_source_types"
 
-        for filename in os.listdir("copr_gui_source_types"):
+        for filename in os.listdir(directory):
             if not filename.endswith(".qml"):
                 continue
 
             path = os.path.abspath(
-                os.path.join("source_types", filename)
+                os.path.join(directory, filename)
             )
             qml = QQuickWidget()
             qml.setResizeMode(
@@ -4735,7 +4738,7 @@ class ChrootConfig(QMainWindow):
 # ============================================================
 # Main
 # ============================================================
-def start():
+def main():
     app = QApplication(sys.argv)
 
     window = CoprWindow()
@@ -4745,4 +4748,4 @@ def start():
 
 
 if __name__ == "__main__":
-    start()
+    main()
