@@ -1,11 +1,12 @@
 Name:           copr-gui
+%define pypi_name copr_gui
 Version:        0.1.0
 Release:        1%{?dist}
 Summary:        GUI for managing COPR instances
 
 License:        GPL-3.0-or-later
-URL:            https://github.com/qr243vbi/copr-gui
-Source0:        %{url}/archive/refs/tags/%{version}/copr_gui-%{version}.tar.gz
+URL:            https://github.com/qr243vbi/%{pypi_name}
+Source0:        %{url}/archive/refs/tags/%{version}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -22,7 +23,7 @@ Requires:       python3-copr
 A Qt-based graphical user interface for managing COPR instances.
 
 %prep
-%autosetup -n copr_gui-%{version}
+%autosetup -n %{pypi_name}-%{version}
 
 %generate_buildrequires
 %pyproject_buildrequires

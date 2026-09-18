@@ -43,12 +43,11 @@ Rectangle {
 
     function getDict() {
         var ret = {
-            "pypi_package_name": pypi_package_name.text
+            "pypi_package_name": pypi_package_name.text,
+            "pypi_package_version": pypi_package_version.text,
+            "spec_generator": spec_generator.currentText,
+            "python_versions": []
         };
-
-        ret["pypi_package_version"] = pypi_package_version.text;
-        ret["spec_generator"] = spec_generator.currentText;
-        ret["python_versions"] = [];
 
         if (spec_generator.currentText === "pyp2rpm") {
             if (!isempty(spec_template.text)) {
