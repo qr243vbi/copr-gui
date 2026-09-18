@@ -46,11 +46,9 @@ Rectangle {
             "pypi_package_name": pypi_package_name.text
         };
 
-        if (!isempty(pypi_package_version.text)) {
-            ret["pypi_package_version"] = pypi_package_version.text;
-        }
-
+        ret["pypi_package_version"] = pypi_package_version.text;
         ret["spec_generator"] = spec_generator.currentText;
+        ret["python_versions"] = [];
 
         if (spec_generator.currentText === "pyp2rpm") {
             if (!isempty(spec_template.text)) {
