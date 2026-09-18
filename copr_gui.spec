@@ -12,10 +12,11 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  pyproject-rpm-macros
+BuildRequires:  qt6-qtdeclarative-devel
 
+Requires:       qt6-qtdeclarative
 Requires:       python3-pyqt6
 Requires:       python3-copr
-Requires:       python3-munch
 
 %description
 A Qt-based graphical user interface for managing COPR instances.
