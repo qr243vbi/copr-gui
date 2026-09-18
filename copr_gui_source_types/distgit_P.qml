@@ -6,11 +6,10 @@ Rectangle {
     color: windowColor
     // qmllint enable unqualified
 
-    readonly property string identifier: "distgit"
+    readonly property string identifier: "distgit-P"
     readonly property string name: "DistGit"
 
     function setDict(data) {
-        packagename.text = data["packagename"];
         committish.text = data["committish"] || "";
         namespace.text = data["namespace"] || "";
         distgit.text = data["distgit"] || "";
@@ -21,9 +20,7 @@ Rectangle {
     }
 
     function getDict() {
-        var ret = {
-            "packagename": packagename.text
-        };
+        var ret = {};
         
         var com = committish.text;
         var nmsp = namespace.text;
@@ -47,21 +44,6 @@ Rectangle {
     Column {
         anchors.fill: parent
         spacing: 10
-        Column {
-            width: parent.width
-            Label {
-                text: "Package name"
-                // qmllint disable unqualified
-                color: textColor
-                // qmllint enable unqualified
-            }
-
-            TextField {
-                id: packagename
-                width: parent.width
-                placeholderText: "Enter package name..."
-            }
-        }
         Column {
             width: parent.width
             Label {
