@@ -25,19 +25,15 @@ Rectangle {
         var com = committish.text;
         var nmsp = namespace.text;
         var dgit = distgit.text;
-
         if (!isempty(com)) {
             ret["committish"] = com;
         }
-
         if (!isempty(nmsp)) {
             ret["namespace"] = nmsp;
         }
-
         if (!isempty(dgit)) {
             ret["distgit"] = dgit;
         }
-
         return ret;
     }
 

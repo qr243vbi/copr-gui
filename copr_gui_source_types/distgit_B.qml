@@ -27,44 +27,24 @@ Rectangle {
         var ret = {
             "packagename": packagename.text
         };
-        
         var com = committish.text;
         var nmsp = namespace.text;
         var dgit = distgit.text;
-
         if (!isempty(com)) {
             ret["committish"] = com;
         }
-
         if (!isempty(nmsp)) {
             ret["namespace"] = nmsp;
         }
-
         if (!isempty(dgit)) {
             ret["distgit"] = dgit;
         }
-
         return ret;
     }
 
     Column {
         anchors.fill: parent
         spacing: 10
-        Column {
-            width: parent.width
-            Label {
-                text: "Package name"
-                // qmllint disable unqualified
-                color: textColor
-                // qmllint enable unqualified
-            }
-
-            TextField {
-                id: packagename
-                width: parent.width
-                placeholderText: "Enter package name..."
-            }
-        }
         Column {
             width: parent.width
             Label {
