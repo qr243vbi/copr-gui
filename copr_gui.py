@@ -1,3 +1,4 @@
+#!/bin/python3
 import sys
 import random
 import string
@@ -2231,6 +2232,7 @@ BUILD_ACTION = NONE_ACTION + int(random.random() * 100) + 1
 EDIT_ACTION = BUILD_ACTION + int(random.random() * 100) + 1
 ADD_ACTION = EDIT_ACTION + int(random.random() * 100) + 1
 NEW_ACTION = ADD_ACTION + int(random.random() * 100) + 1
+VIEW_BUILD_ACTION = NEW_ACTION + int(random.random() * 100) + 1
 DATA_ROLE = int(random.random() * 100) + Qt.ItemDataRole.UserRole + 1
 BUILD_SECTION = int(random.random() * 100) + 1
 PACKAGE_SECTION = int(random.random() * 100) + BUILD_SECTION + 1
@@ -2276,6 +2278,10 @@ def CoprAction(self, data, action, section, finish_job = None):
             "Json",
             pretty,
         )
+    elif action == VIEW_BUILD_ACTION:
+        if len(data) > 0:
+            CoprViewBuilds(self, data[0])
+            return
     elif action == NEW_ACTION:
         if section == BUILD_SECTION:
             Worker = AddBuildWorker
@@ -2750,6 +2756,8 @@ class CoprTable(QObject):
         self.worker = None
 
 
+
+
 # ============================================================
 # ProjectBuildsFrame
 # ============================================================
@@ -2800,7 +2808,8 @@ class ProjectBuildsFrame(QFrame):
         ), menus={
             ADD_ACTION: "Add build",
             DELETE_ACTION: "Delete",
-            VIEW_JSON_ACTION: "View Json"
+            VIEW_JSON_ACTION: "View Json",
+            VIEW_BUILD_ACTION: "View build"
         }, action = self.copr_action)
         layout.addWidget(self.view, 1)
 
@@ -3404,6 +3413,36 @@ class ProjectWindow(QMainWindow):
         self.chroot_widgets.changed.connect(save_project_chroots)   
         self.project_options.saved.connect(save_project_options)
         self.setCentralWidget(tabs)
+
+
+# ===========================================================
+# Build chroots
+# ===========================================================
+class BuildWindow(QMainWindow):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # ----------------------------------------------------
+        # List
+        # ----------------------------------------------------
+        self.list = QListWidget()
+
+        self.list.setContextMenuPolicy(
+            Qt.ContextMenuPolicy.CustomContextMenu
+        )
+
+        self.config_widget = QWidget()
+
+        layout = QVBoxLayout(self.config_widget)
+        layout.addWidget(self.list)
+
+        self.setCentralWidget(self.config_widget)
+
+
+def CoprViewBuilds(self, build):
+    self.build_window = BuildWindow()
+    self.build_window.show()
+
 
 # ============================================================
 # Create build and package
